@@ -1,24 +1,5 @@
 <?php
 require('connect.php');
-/* if(isset($_POST['AddSchool'])){
-
-
-$BoardName = $_POST['BoardName'];
-$SchoolName = $_POST['SchoolName'];
-$Email = $_POST['Email'];
-
-require('connect.php');
-$query= "INSERT INTO schools (`Board Name`, `School Name`, `Email` )
-VALUES ('$BoardName', '$SchoolName', '$Email')";
-
-$school = mysqli_query($connect, $query);
-
-print_r($school);
-if($school){
-    header("Location: index.php");
-    exit;
-}
-} */
 
 if($_SERVER['REQUEST_METHOD']==='GET'){
     $id = $_GET['id'];        // fetch id
@@ -54,7 +35,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 </head>
 <body>
     <h1>update current school</h1>
-    <form action= "add.php" method ="POST">
+    <form action= "update.php" method ="POST">
 <input type= "text" name= "BoardName" placeholder=" Board Name" value="<?php echo $school['Board Name']
 ?>"
 >

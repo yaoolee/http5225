@@ -13,16 +13,18 @@
       $query = 'SELECT * FROM schools';
       $schools = mysqli_query($connect, $query);
   ?>
-<?php
-  foreach($schools as $school){
-    echo $school['School Name'] . '
-    <form action="update.php" method="GET">
-    <input type="hidden" name="id" value="' . $school['id'] . '">
-     <input type="submit" name="edit" value="Edit">
-     </form>';
-  }
-?>
+<?php foreach($schools as $school): ?>
+        <p><?php echo $school['School Name']; ?></p>
 
-
+        <form action="update.php" method="GET">
+            <input type="hidden" name="id" value="<?php echo $school['id']; ?>">
+            <input type="submit" name="edit" value="Edit">
+        </form>
+        <form action="delete.php" method="GET">
+            <input type="hidden" name="id" value="<?php echo $school['id']; ?>">
+            <input type="submit" name="delete" value="Delete">
+        </form>
+        <hr>
+    <?php endforeach; ?>
 </body>
 </html>
