@@ -1,42 +1,35 @@
 @extends('layouts/admin')
 @section('content')
-<div class="row">
-<div class="col">
-<h1 class="display-2">
-Add a Student Profile
-</h1>
-</div>
-</div>
-<div class="row">
+<h1>Add a Student Profile </h1>
+
 <form action="{{ route('students.store') }}" method="post">
 @if ($errors->any())
-<div class="alert alert-danger">
 <ul>
 @foreach ($errors->all() as $error)
 <li>{{ $error }}</li>
 @endforeach
 </ul>
-</div>
 @endif
 @csrf 
-<div class="mb-3">
-<label for="fname" class="form-label">First Name</label>
-<input type="text" class="form-control" id="fname" name="fname" aria-describedby="fname">
-</div>
-<div class="mb-3">
-<label for="lname" class="form-label">Last Name</label>
-<input type="text" class="form-control" id="lname" name="lname" aria-describedby="lname">
-</div>
-<div class="mb-3">
-<label for="email" class="form-label">Email</label>
-<input type="email" class="form-control" id="email" name="email" aria-describedby="email">
-@error('email')
-<span class="text-danger" role="alert">
-<strong>{{ $message }}</strong>
-</span>
+
+<input type="text" id="fname" name="fname" value="{{ old('fname') }}" placeholder="First Name"> <br>
+@error('fname')
+<i>{{ $message }}</i>
 @enderror
-</div>
-<button type="submit" class="btn btn-primary">Submit</button>
+<br>
+
+<input type="text" id="lname" name="lname" value="{{ old('lname') }}" placeholder="Last Name"> <br>
+@error('lname')
+<i>{{ $message }}</i>
+@enderror
+<br>
+<input type="email" id="email" name="email" value="{{ old('email') }}" placeholder="Email"> <br>
+@error('email')
+
+{{ $message }}
+
+@enderror
+<br>
+<button type="submit">Submit</button>
 </form>
-</div>
 @endsection
