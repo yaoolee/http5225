@@ -6,7 +6,7 @@
 @if ($errors->any())
 <ul>
 @foreach ($errors->all() as $error)
-<li>{{ $error }}</li>
+<li style="color: red;"><i>{{ $error }}</i></li>
 @endforeach
 </ul>
 @endif
@@ -14,20 +14,19 @@
 
 <input type="text" id="fname" name="fname" value="{{ old('fname') }}" placeholder="First Name"> <br>
 @error('fname')
-<i>{{ $message }}</i>
+<span style="color: red;"><i>{{ $message }}</i></span>
 @enderror
 <br>
 
 <input type="text" id="lname" name="lname" value="{{ old('lname') }}" placeholder="Last Name"> <br>
 @error('lname')
-<i>{{ $message }}</i>
+<span style="color: red;"><i>{{ $message }}</i></span>
 @enderror
 <br>
+
 <input type="email" id="email" name="email" value="{{ old('email') }}" placeholder="Email"> <br>
 @error('email')
-
-{{ $message }}
-
+<span style="color: red;">{{ $message }}</span>
 @enderror
 <br>
 <button type="submit">Submit</button>
