@@ -8,7 +8,7 @@
 @foreach($courses as $course)
 
     
-<h5>{{ $course -> name }} <br> {{ $course -> description }}
+<h5>Name: {{ $course -> name }} <br> description: {{ $course -> description }}
     <a href="{{ route('courses.show', $course->id) }}" class="btn btn-primary">Show course</a> 
 </h5>
 <a href="{{ route('courses.edit', $course -> id ) }}" class="btn btn-info">Edit</a>

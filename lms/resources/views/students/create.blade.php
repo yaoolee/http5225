@@ -28,7 +28,11 @@
 @error('email')
 <span style="color: red;">{{ $message }}</span>
 @enderror
-<br>
+<br><br>
+
+@foreach ($courses as $course)
+<input type="checkbox" name="courses[]" value="{{ $course->id }}">{{ $course->name }}<br>
+@endforeach
 <button type="submit">Submit</button>
 </form>
 @endsection

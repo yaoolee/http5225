@@ -14,4 +14,13 @@ class Course extends Model
         'name',
         'description',
     ];
+    public function students(): BelongsToMany
+    {
+        return $this->belongsToMany(Student::class);
+    }
+    public function professor()
+    {
+        return $this->hasOne(Professor::class);
+    }
+    
 }

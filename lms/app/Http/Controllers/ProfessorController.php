@@ -13,8 +13,12 @@ class ProfessorController extends Controller
      */
     public function index()
     {
-        $professors = Professor::all();
-        return view('professors.index', compact('professors'));
+        //$professors = Professor::all();
+        
+        $professors = Professor::with('course')->get();
+        $professor= Professor::find(1);
+        $course= $professor->course;
+        return view('professors.index', compact('professors', 'course'));
     }
 
     /**
