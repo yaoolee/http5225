@@ -1,6 +1,6 @@
 # http5225
-## learning php
-## screenshots
+## learning php, laravel
+## screenshots for lms
 - ![courses table](lms/images/courses.png)
 - ![courses table](lms/images/addcourse.png)
 - ![courses table](lms/images/updatecourse.png)
